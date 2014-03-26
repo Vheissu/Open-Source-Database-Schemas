@@ -1,5 +1,5 @@
 
-Quora Database Schema
+## Quora Database Schema
 
 A loose schema for building a questions and answers platform like Quora.
 

@@ -64,3 +64,39 @@ A schema for a site like Reddit or Hacker News.
 **vote_direction**: (String), Valid values are: "up" and "down"
 
 **date_created**: (Unix Timestamp or DateTime), When was this vote added?
+
+### Table: comments
+
+**id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+
+**user_id**: (Integer), ID of the user who owns this comment
+
+**submission_id**: (Integer), Which submission does this comment belong to?
+
+**parent_id**: (Integer), parent comment ID this comment belongs to. 0 means no parent.
+
+**comment**: (Text), The comment text
+
+**upvotes**: (Integer), Number of upvotes
+
+**downvotes**: (Integer), Number of downvotes
+
+**flags**: (Integer), Number of times this comment has been flagged
+
+**date_created**: (Unix Timestamp or DateTime), When was this comment added?
+
+**date_updated**: (Unix Timestamp or DateTime), When was this comment updated
+
+### Table: comment_votes
+
+We already have a votes table, so why another? Submissions and comments are two different things. You could bloat the votes table heavily if you store them all in the same table. This means the _comment_votes_ table can be split out easier.
+
+**id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+
+**comment_id**: (Integer), ID of the comment the vote was cast on
+
+**user_id**: (Integer), ID of the user who voted
+
+**vote_direction**: (String), Valid values are: "up" and "down"
+
+**date_created**: (Unix Timestamp or DateTime), When was this vote added?

@@ -7,6 +7,10 @@ Sometimes architecting the database of your app for some can be the most difficu
 
 Don't be confused, the goal of this repository isn't to provide export files of database schemas you can import directly into MySQL or Postgres (or insert X database). These are high-level schemas you will have to convert over to your chosen schema. This is to ensure all kinds of databases are supported.
 
+### What about schema-less NoSQL databases?
+
+Deny it all you want, but even so-called schema-less NoSQL solutions like MongoDB use some kind of schema (call it a structure). Even if that is handled on application level, you need to have some kind of data structure.
+
 ## How can I contribute a schema?
 
 Fork this repository, add in your chosen schema and stick to the existing structure of the repository. Rather than provide an example schema, base your schema off of an existing one. 

@@ -83,6 +83,14 @@ A table for holding posts assigned to a particular collection
 
 **date_updated**: (Unix Timestamp or DateTime), Last time this user was updated?
 
+### Table: analytics
+
+A table for storing post analytics which can be used for trending data. Recommendations are used for trending data as well.
+
+**post_id**: (Integer), ID of the post (Indexed field)
+
+**date_created**: (Unix Timestamp or DateTime), When was this post viewed?
+
 ### Table: users_collections
 
 A table for users following particular collections
@@ -98,3 +106,5 @@ Whenever a user recommends an article.
 **user_id**: (Integer), ID of the user (Indexed field)
 
 **post_id**: (Integer), ID of the post (Indexed field)
+
+**date_created**: (Unix Timestamp or DateTime), When was this post recommended?

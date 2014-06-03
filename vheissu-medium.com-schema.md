@@ -91,7 +91,7 @@ A table for users following particular collections
 
 **user_id**: (Integer), ID of the user (Indexed field)
 
-### Table: users_recommendations
+### Table: recommendations
 
 Whenever a user recommends an article.
 

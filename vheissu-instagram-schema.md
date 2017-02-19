@@ -23,6 +23,30 @@ A schema for a photo sharing application like Instagram.
 
 **date_updated**: (Unix Timestamp or DateTime), Last time this image was updated?
 
+### Table: comments
+
+**comment_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+
+**comment**: (Text), a simple text field containing the comment
+
+### Table photos_comments
+
+**photo_id**: (Integer), ID of the photo
+
+**comment_id**: (Integer), ID of the comment being assigned to a photo
+
+### Table: hashtags
+
+**hashtag_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+
+**hashtag**: (Text), a simple text field containing the hashtag
+
+### Table photos_hashtags
+
+**photo_id**: (Integer), ID of the photo
+
+**hashtag_id**: (Integer), ID of the hashtag being assigned to a photo
+
 ### Table: likes
 
 **user_id**: (Integer), ID of the user performing the like (Indexed field)

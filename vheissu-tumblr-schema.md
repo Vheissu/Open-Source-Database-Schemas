@@ -123,6 +123,8 @@ A schema for a blogging platform like Tumblr.
 
 **salted_password**: (String), Salted password digest
 
+**salt**: (String), Random and preferably unique string used to hash the password
+
 **first_name**: (String), First name of user
 
 **last_name**: (String), Last name of user

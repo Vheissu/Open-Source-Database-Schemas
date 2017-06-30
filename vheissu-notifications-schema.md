@@ -14,7 +14,8 @@ This schema assumes you have a users table already and will not be adding one in
 **notify**: (Integer), ID of user who should be notified
 
 **notification**: (String), The textual notification field which could use template placeholders for dynamic values like: "{username} wants to be friends" which could be replaced to say: "Vheissu wants to be friends"
-datetime_added: (Datetime or Timestamp Integer), When was this notification added
+
+**datetime_added**: (Datetime or Timestamp Integer), When was this notification added
 
 **datetime_read**: (Datetime or Timestamp Integer),
 read: (Tiny Integer), a field housing either 1 or 0. 1 means the notification has been read, 0 means it has not. Default value is 0.

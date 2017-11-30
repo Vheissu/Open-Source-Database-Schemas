@@ -1,5 +1,5 @@
 
-##Foursquare Database Schema
+## Foursquare Database Schema
 
 ### Table: Places
 

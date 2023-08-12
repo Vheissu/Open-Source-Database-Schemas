@@ -1,90 +1,109 @@
+## Instagram Database Schema
 
-## Instagram Schema
+### Table: Users
 
-A schema for a photo sharing application like Instagram.
+**user_id**: (Integer), Primary ID
 
-### Table: photos
+**username**: (String), Username of the user
 
-**photo_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+**email**: (String), Email address of the user
 
-**user_id**: (Integer), ID of the user who owns this photo (Indexed field)
+**password**: (String), Hashed password for the user
 
-**caption**: (String), Photo caption
+**bio**: (String), Short bio of the user
 
-**latitude**: (Float), Latitude value for location
+**profile_picture**: (String), URL to the profile picture
 
-**longitude**: (Float), Longitude value location
+### Table: Posts
 
-**image_path**: (String), Path to image on server
+**post_id**: (Integer), Primary ID
 
-**image_size**: (Integer), Image size on server
+**user_id**: (Integer), ID of the user who made the post
 
-**date_created**: (Unix Timestamp or DateTime), When was this image created?
+**datetime_added**: (Datetime or Timestamp Integer), When was this post added?
 
-**date_updated**: (Unix Timestamp or DateTime), Last time this image was updated?
+**image_url**: (String), URL to the image
 
-### Table: comments
+**caption**: (String), Caption for the post
 
-**comment_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+### Table: Comments
 
-**comment**: (Text), a simple text field containing the comment
+**comment_id**: (Integer), Primary ID
 
-### Table photos_comments
+**user_id**: (Integer), ID of the user who made this comment
 
-**photo_id**: (Integer), ID of the photo
+**post_id**: (Integer), ID of the post the comment was made on
 
-**comment_id**: (Integer), ID of the comment being assigned to a photo
+**datetime_added**: (Datetime or Timestamp Integer), When was this comment added?
 
-### Table: hashtags
+**comment**: (String), Text of the comment
 
-**hashtag_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+### Table: Likes
 
-**hashtag**: (Text), a simple text field containing the hashtag
+**like_id**: (Integer), Primary ID
 
-### Table photos_hashtags
+**user_id**: (Integer), ID of the user who liked the post
 
-**photo_id**: (Integer), ID of the photo
+**post_id**: (Integer), ID of the post that was liked
 
-**hashtag_id**: (Integer), ID of the hashtag being assigned to a photo
+**datetime_added**: (Datetime or Timestamp Integer), When was this like added?
 
-### Table: likes
+### Table: Followers
 
-**user_id**: (Integer), ID of the user performing the like (Indexed field)
+**follower_id**: (Integer), Primary ID
 
-**photo_id**: (Integer), ID of the photo being liked (Indexed field)
+**user_id**: (Integer), ID of the user who is following
 
-**date_created**: (Unix Timestamp or DateTime), When was this image created?
+**following_user_id**: (Integer), ID of the user being followed
 
-**date_updated**: (Unix Timestamp or DateTime), Last time this image was updated?
+**datetime_added**: (Datetime or Timestamp Integer), When did this follow relationship start?
 
-### Table: tags
+### Table: DirectMessages
 
-**id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+**dm_id**: (Integer), Primary ID
 
-**name**: (String), Tag name
+**sender_id**: (Integer), ID of the user who sent the message
 
-### Table: photos_tags
+**receiver_id**: (Integer), ID of the user who received the message
 
-**photo_id**: (Integer), ID of the photo being tagged
+**message**: (String), The actual message
 
-**tag_id**: (Integer), ID of the tag being assigned to a photo
+**datetime_sent**: (Datetime or Timestamp Integer), When was the message sent?
 
-### Table: users
+### Table: Stories
 
-**user_id**: (Integer), Primary ID that preferably auto increments (if supported in chosen DB)
+**story_id**: (Integer), Primary ID
 
-**username**: (String), Username (Unique Index)
+**user_id**: (Integer), ID of the user who posted the story
 
-**email**: (String), Email address (Unique Index)
+**datetime_added**: (Datetime or Timestamp Integer), When was the story added?
 
-**salted_password**: (String), Salted password digest
+**image_url**: (String), URL to the image in the story
 
-**first_name**: (String), First name of user
+**caption**: (String), Caption for the story
 
-**last_name**: (String), Last name of user
+### Table: SavedPosts
 
-**last_ip**: (String), Last known user IP address
+**savedpost_id**: (Integer), Primary ID
 
-**date_created**: (Unix Timestamp or DateTime), When did this user sign up?
+**user_id**: (Integer), ID of the user who saved the post
 
-**date_updated**: (Unix Timestamp or DateTime), Last time this user was updated?
+**post_id**: (Integer), ID of the post that was saved
+
+**datetime_added**: (Datetime or Timestamp Integer), When was the post saved?
+
+### Table: Hashtags
+
+**hashtag_id**: (Integer), Primary ID
+
+**hashtag**: (String), The actual hashtag text, unique
+
+### Table: HashtagMappings
+
+**hashtagmap_id**: (Integer), Primary ID
+
+**hashtag_id**: (Integer), ID of the hashtag
+
+**post_id**: (Integer), ID of the post where the hashtag is used
+
+**datetime_added**: (Datetime or Timestamp Integer), When was the hashtag added to the post?
